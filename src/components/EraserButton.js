@@ -10,7 +10,10 @@ class EraserButton extends Component {
 
     render() {
         return (
-            <button className="button-style" onClick={this.getEraser}>Eraser</button>
+            <button className="button-style" onClick={this.getEraser}>
+            Eraser
+            <i class="fas fa-eraser"></i>
+            </button>
         );
     }
 }

@@ -24,12 +24,12 @@ class Slider extends Component {
     render() {
         return (
             <button className="button-style">
-                Brush Size
                 <input
+                    className="brush-slider"
                     type = "range"
                     min = "1"
                     max = "50"
-                    id = "brushSlider"
+                    id = "brush-slider"
                     value = {this.state.value}
                     onChange = {this.setSize}/>
             </button>

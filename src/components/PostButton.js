@@ -10,17 +10,12 @@ class PostButton extends Component {
 
     render() {
         return (
-            <button className="button-style" onClick={this.saveCanvas}>Save</button>
+            <button className="button-style" onClick={this.saveCanvas}>
+            Save
+            <i class="far fa-save"></i>
+            </button>
         )
     }
 }
-
-
-// const PostButton = (props) => {
-//     return (
-//       // calls the clearCanvas function that lives in the parent component Canvas.js
-//       <button onClick={props.onClick}>Save</button>
-//     );
-// };
 
 export default PostButton;

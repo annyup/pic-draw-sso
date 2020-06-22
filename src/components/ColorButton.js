@@ -3,22 +3,26 @@
 import React, { Component } from "react";
 
 class ColorButton extends Component {
-  // function that gets the hexcolor from the type of color attribute of the input element
+  // gets the hexcolor chosen by user
   getColor = (e) => {
     const color = e.currentTarget.value;
-    // variable is passed back up from ColorButton.js -> Buttons.js -> Canvas.js
+
     this.props.onClick(color);
   };
 
   render() {
     return (
-      // calls the changeColor function that lives in the parent component Canvas.js
       <button className="button-style" onClick={this.props.onClick}>
+          <label htmlFor="choose-color">
+          Color
+          </label>
           <input
+            className="choose-color"
+            name="choose-color"
+            id="choose-color"
             type="color"
             onChange={this.getColor}
             />
-            Color
       </button>
     );
   }

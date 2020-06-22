@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import Slider from './Slider.js';
 import Buttons from './Buttons.js';
-import PostButton from './PostButton.js';
 import firebase from "../firebase.js";
 
 class Canvas extends Component {
@@ -18,11 +16,20 @@ class Canvas extends Component {
         };
     }
 
-    // Start & stop drawing functions
-
+    // start & stop drawing functions
     startDrawing = ({nativeEvent}) => {
         this.isDrawing = true;
         this.draw({nativeEvent})
+
+        // for tablet & mobile users
+        if (nativeEvent.type === "touchstart") {
+            this.isDrawing = true;
+            const touch = nativeEvent.touches[0];
+            this.swipe = {
+              x: touch.clientX,
+              y: touch.clientY,
+            };
+        }
     }
 
     draw = ({nativeEvent}) => {
@@ -48,9 +55,7 @@ class Canvas extends Component {
         this.ctx.closePath();
     }
 
-    // Slider function for brush size
-    // size prop from slider.js
-
+    // slider function for brush size
     brushSize = (size) => {
         this.ctx.lineWidth = size;
     }
@@ -89,15 +94,13 @@ class Canvas extends Component {
 
     render () {
         return (
-            <main>
-                <Slider
-                    id = 'slider'
-                    onChange = {this.brushSize}/>
+            <main className="wrapper">
                 <Buttons
                     colorFunction={this.changeColor}
                     clearFunction={this.clearCanvas}
                     eraserFunction={this.useEraser}
                     postFunction={this.saveCanvas}
+                    id="slider" brushSize={this.brushSize}
                 />
                 <div className = 'canvas-container'>
                     <canvas
