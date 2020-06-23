@@ -96,6 +96,11 @@ class Canvas extends Component {
         this.isDrawing = false;
         this.ctx.beginPath();
         this.ctx.closePath();
+
+        if (nativeEvent.type === "touchend") {
+            this.isDrawing = false;
+            this.ctx.beginPath();
+          }
     }
 
     // slider function for brush size
