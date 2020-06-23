@@ -12,7 +12,8 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route exact path="/" component={Canvas} />
+          
+          <Route exact path="/" component={Canvas}/>
           <Route path="/gallery" component={Gallery}/>
 
           <footer>
@@ -20,6 +21,7 @@ class App extends Component {
               <p>Copyright © Anny Pham 2020</p>
             </div>
           </footer>
+
         </div>
       </Router>
     );
