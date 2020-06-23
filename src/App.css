@@ -36,10 +36,11 @@ h1, h2 {
 }
 
 h1 {
-  font-size: 4.0rem;
+  font-size: 5.0rem;
   -webkit-text-stroke-color: #FFF;
   -webkit-text-stroke-width: 3px;
   margin: 0;
+  text-shadow: 4px 4px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
@@ -49,7 +50,7 @@ h2 {
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1.0rem;
 }
 
 /* Canvas styles */
@@ -68,10 +69,19 @@ p {
   margin-top: 6%;
 }
 
+.p-styles {
+  background-color: #FFB33E;
+  color: #000;
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
+}
+
 .canvas-button-container {
   display: flex;
+  /* flex-direction: column-reverse; */
   justify-content: center;
-  margin-bottom: 4.45%;
+  margin-bottom: 4.8%;
 }
 
 /* Button styles */
@@ -81,6 +91,7 @@ p {
   flex-direction: column;
   justify-content: center;
   margin-right: 20px;
+  margin-top: 20px;
 }
 
 .button-style {
@@ -93,6 +104,9 @@ p {
   text-transform: lowercase;
   margin-bottom: 10px;
   border-radius: 10px;
+  /* width: 150px;
+  height: 40px;
+  margin: 5px; */
   
   display: flex;
   justify-content: center;
@@ -139,7 +153,11 @@ i {
   margin-left: 10px;
 }
 
-.choose-color::-moz-color-swatch,
+.choose-color::-moz-color-swatch {
+  border: none;
+  border-radius: 100%;
+}
+
 .choose-color::-webkit-color-swatch {
   border: none;
   border-radius: 100%;
@@ -176,7 +194,7 @@ footer {
 }
 
 footer p {
-  font-size: 1.2rem;
+  font-size: 1.0rem;
 }
 
 /* Sweet Alert */

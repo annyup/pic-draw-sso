@@ -17,34 +17,11 @@ class Canvas extends Component {
         };
     }
 
-    // resizes when inner width of window changes
     componentDidMount() {
+        this.ctx = this.canvas.current.getContext("2d");
         this.handleResize();
         window.addEventListener("resize", this.handleResize.bind(this));
-        this.ctx = this.canvas.current.getContext("2d");
     }
-
-    handleResize = () => {
-        if (window.innerWidth > 900) {
-        this.setState({ width: 800, height: 600 });
-        } else if (window.innerWidth <= 900 && window.innerWidth > 810) {
-        this.setState({ width: 750, height: 500 });
-        } else if (window.innerWidth <= 810 && window.innerWidth > 750) {
-            this.setState({ width: 700, height: 500 });
-        } else if (window.innerWidth <= 750 && window.innerWidth > 700) {
-            this.setState({ width: 600, height: 500 });
-        } else if (window.innerWidth <= 700 && window.innerWidth > 600) {
-            this.setState({ width: 500, height: 500 });
-        } else if (window.innerWidth <= 600 && window.innerWidth > 500) {
-            this.setState({ width: 450, height: 500 });
-        } else if (window.innerWidth <= 500 && window.innerWidth > 410) {
-            this.setState({ width: 380, height: 500 });
-        } else if (window.innerWidth <= 410 && window.innerWidth > 350) {
-            this.setState({ width: 300, height: 500 });
-        } else if (window.innerWidth <= 350) {
-            this.setState({ width: 280, height: 500 });
-        }
-    };
 
     componentWillUnmount() {
         window.removeEventListener("resize", this.handleResize.bind(this));
@@ -109,11 +86,6 @@ class Canvas extends Component {
         this.ctx.lineWidth = size;
     }
 
-    // clears the canvas
-    clearCanvas = () => {
-        this.ctx.clearRect(0, 0, this.state.width, this.state.height);
-    };
-
     // changes color of the brush
     changeColor = (selectedColor) => {
         this.ctx.strokeStyle = selectedColor;
@@ -123,6 +95,11 @@ class Canvas extends Component {
     useEraser = (selectedEraser) => {
         this.ctx.strokeStyle = selectedEraser;
     }
+
+    // clears the canvas
+    clearCanvas = () => {
+        this.ctx.clearRect(0, 0, this.state.width, this.state.height);
+    };
 
     // grab the URL of the image and save it to firebase
     saveCanvas = () => {
@@ -140,13 +117,36 @@ class Canvas extends Component {
           });
     }
 
+    // resizes the canvas when inner width of window changes
+    handleResize = () => {
+        if (window.innerWidth > 900) {
+        this.setState({ width: 800, height: 600 });
+        } else if (window.innerWidth <= 900 && window.innerWidth > 810) {
+        this.setState({ width: 750, height: 500 });
+        } else if (window.innerWidth <= 810 && window.innerWidth > 750) {
+            this.setState({ width: 700, height: 500 });
+        } else if (window.innerWidth <= 750 && window.innerWidth > 700) {
+            this.setState({ width: 600, height: 500 });
+        } else if (window.innerWidth <= 700 && window.innerWidth > 600) {
+            this.setState({ width: 500, height: 500 });
+        } else if (window.innerWidth <= 600 && window.innerWidth > 500) {
+            this.setState({ width: 450, height: 500 });
+        } else if (window.innerWidth <= 500 && window.innerWidth > 410) {
+            this.setState({ width: 380, height: 500 });
+        } else if (window.innerWidth <= 410 && window.innerWidth > 350) {
+            this.setState({ width: 300, height: 500 });
+        } else if (window.innerWidth <= 350) {
+            this.setState({ width: 280, height: 500 });
+        }
+    };
+
     render () {
         return (
             <main className="wrapper">
                 <section>
                     <div className="canvas-header">
                         <h1>Pic-draw-sso</h1>
-                        <p>Are you the next Picasso? Use the buttons on the side to get started on your art piece! Remember to hit the save button and press gallery to view!</p>
+                        <p className="p-styles">Are you the next Picasso? Use the buttons on the side to get started on your art piece! Remember to hit the save button and press gallery to view!</p>
                     </div>
                     <div className="canvas-button-container">
                         <Buttons
