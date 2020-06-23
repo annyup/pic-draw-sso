@@ -137,7 +137,7 @@ class Canvas extends Component {
 
         swal({
             text: "Your drawing has been saved! Go to the gallery to check it out!",
-          });
+        });
     }
 
     render () {
