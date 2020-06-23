@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import firebase from '../firebase.js';
+import { Link } from 'react-router-dom';
 
 class Gallery extends Component {
   constructor() {
@@ -35,23 +36,33 @@ class Gallery extends Component {
 
   render() {
     return (
-      <div className="wrapper">
-        <h2>Gallery</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit assumenda repellat officiis. Ipsum, soluta aperiam?</p>
+      <div>
+        <div className="app-button">
+          <Link to="/">
+            <button className="button-style">
+              back
+              <i class="fas fa-palette"></i>
+            </button>
+          </Link>
+        </div>
 
-        {
-          <div className="gallery-grid">
-            {this.state.drawingsArray.map((item) => {
-              return (
-                <div className="user-drawing">
-                  <img src={item.drawingUrl}></img>
-                </div>
-              )
-            })}
-          </div>
-        }
-        
+        <div className="wrapper">
+          <h1>Gallery</h1>
+          <p>Here is yours and other users' master pieces! Take a look!</p>
+
+          {
+            <div className="gallery-grid">
+              {this.state.drawingsArray.map((item) => {
+                return (
+                  <div className="user-drawing">
+                    <img src={item.drawingUrl}></img>
+                  </div>
+                )
+              })}
+            </div>
+          }
       </div>
+      </div>             
     );
   }
 }
