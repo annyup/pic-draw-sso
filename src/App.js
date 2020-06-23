@@ -4,7 +4,7 @@ import Canvas from './components/Canvas.js';
 import Gallery from './components/Gallery.js';
 import { 
   BrowserRouter as Router, 
-  Route, Link } from 'react-router-dom';
+  Route } from 'react-router-dom';
 
 class App extends Component {
 

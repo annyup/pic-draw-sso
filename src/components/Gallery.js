@@ -55,7 +55,7 @@ class Gallery extends Component {
               {this.state.drawingsArray.map((item) => {
                 return (
                   <div className="user-drawing">
-                    <img src={item.drawingUrl}></img>
+                    <img src={item.drawingUrl} alt="Canvas drawing by a user"></img>
                   </div>
                 )
               })}
