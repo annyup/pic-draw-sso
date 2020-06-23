@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Buttons from './Buttons.js';
 import firebase from "../firebase.js";
+import swal from 'sweetalert';
 
 class Canvas extends Component {
     constructor() {
@@ -133,6 +134,10 @@ class Canvas extends Component {
         
         // clear the canvas when user has submitted their drawing
         this.clearCanvas();
+
+        swal({
+            text: "Your drawing has been saved! Go to the gallery to check it out!",
+          });
     }
 
     render () {
@@ -141,7 +146,7 @@ class Canvas extends Component {
                 <section>
                     <div className="canvas-header">
                         <h1>Pic-draw-sso</h1>
-                        <p>Can you be the next Picasso? Use the buttons on the side to get started on your art piece!</p>
+                        <p>Are you the next Picasso? Use the buttons on the side to get started on your art piece! Remember to hit the save button and press gallery to view!</p>
                     </div>
                     <div className="canvas-button-container">
                         <Buttons
