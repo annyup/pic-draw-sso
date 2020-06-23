@@ -7,13 +7,12 @@ class GalleryButton extends Component {
 
     render() {
         return (         
-
-        <Link to="/gallery">
-            <button className="button-style">
-            Gallery
-            <i class="far fa-image"></i>
-            </button>
-        </Link>
+            <Link to="/gallery">
+                <button className="button-style">
+                    Gallery
+                    <i class="far fa-image"></i>
+                </button>
+            </Link>
         );
     }
 }

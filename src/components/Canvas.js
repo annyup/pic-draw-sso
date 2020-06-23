@@ -18,6 +18,7 @@ class Canvas extends Component {
 
     // resizes when inner width of window changes
     componentDidMount() {
+        this.ctx = this.canvas.current.getContext("2d");
         this.handleResize();
         window.addEventListener("resize", this.handleResize.bind(this));
     }
@@ -65,8 +66,6 @@ class Canvas extends Component {
     }
 
     draw = ({nativeEvent}) => {
-
-        this.ctx = this.canvas.current.getContext("2d");
         const {offsetX, offsetY} = nativeEvent;
 
         this.ctx.lineJoin = "round";
