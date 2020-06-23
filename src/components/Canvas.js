@@ -74,7 +74,7 @@ class Canvas extends Component {
         let mouseX = offsetX;
         let mouseY = offsetY;
 
-        if (this.isDrawing) {
+        if (nativeEvent.type === "mousemove" && this.isDrawing) {
             this.ctx.lineTo(mouseX, mouseY);
             this.ctx.stroke();
             this.ctx.beginPath();
@@ -84,15 +84,15 @@ class Canvas extends Component {
             const touch = nativeEvent.changedTouches[0];
             let touchX = parseInt(touch.clientX - offsetX);
             let touchY = parseInt(touch.clientY - offsetY);
-            this.ctx.lineTo(touchX, touchY);
 
+            this.ctx.lineTo(touchX, touchY);
             this.ctx.stroke();
             this.ctx.beginPath();
             this.ctx.moveTo(touchX, touchY);
         }
     }
 
-    stopDrawing = () => {
+    stopDrawing = ({nativeEvent}) => {
         this.isDrawing = false;
         this.ctx.beginPath();
         this.ctx.closePath();
