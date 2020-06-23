@@ -79,6 +79,7 @@ class Canvas extends Component {
             this.ctx.stroke();
             this.ctx.beginPath();
             this.ctx.moveTo(mouseX, mouseY);
+        // for tablet & mobile users
         } else if (nativeEvent.type === "touchmove" && this.isDrawing) {
             const touch = nativeEvent.changedTouches[0];
             let touchX = parseInt(touch.clientX - offsetX);
