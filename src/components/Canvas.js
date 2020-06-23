@@ -141,7 +141,7 @@ class Canvas extends Component {
                 <section>
                     <div className="canvas-header">
                         <h1>Pic-draw-sso</h1>
-                        <p>Can you be the next Picasso? Use the buttons on the side to get started on your art piece!</p>
+                        <p>Are you the next Picasso? Use the buttons on the side to get started on your art piece! Remember to hit the save button and press gallery to view!</p>
                     </div>
                     <div className="canvas-button-container">
                         <Buttons
@@ -161,9 +161,9 @@ class Canvas extends Component {
                                 onMouseDown={this.startDrawing}
                                 onMouseUp={this.stopDrawing}
                                 onMouseOut={this.stopDrawing}
-                                onMouseMove={this.draw}
+                                onMouseMove={this.drawing}
                                 onTouchStart={this.startDrawing}
-                                onTouchMove={this.draw}
+                                onTouchMove={this.drawing}
                                 onTouchEnd={this.stopDrawing}>
                             </canvas>
                         </div>
