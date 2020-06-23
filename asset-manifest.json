@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/pic-draw-sso/static/css/main.9b23e3bb.chunk.css",
-    "main.js": "/pic-draw-sso/static/js/main.4eefc58a.chunk.js",
-    "main.js.map": "/pic-draw-sso/static/js/main.4eefc58a.chunk.js.map",
+    "main.js": "/pic-draw-sso/static/js/main.4de14bc5.chunk.js",
+    "main.js.map": "/pic-draw-sso/static/js/main.4de14bc5.chunk.js.map",
     "runtime-main.js": "/pic-draw-sso/static/js/runtime-main.5cffab42.js",
     "runtime-main.js.map": "/pic-draw-sso/static/js/runtime-main.5cffab42.js.map",
     "static/js/2.ee99e881.chunk.js": "/pic-draw-sso/static/js/2.ee99e881.chunk.js",
     "static/js/2.ee99e881.chunk.js.map": "/pic-draw-sso/static/js/2.ee99e881.chunk.js.map",
     "index.html": "/pic-draw-sso/index.html",
-    "precache-manifest.948334bb6e26181eeb34f9316f6124e1.js": "/pic-draw-sso/precache-manifest.948334bb6e26181eeb34f9316f6124e1.js",
+    "precache-manifest.8422d468a978edc5607cccaafc092dd7.js": "/pic-draw-sso/precache-manifest.8422d468a978edc5607cccaafc092dd7.js",
     "service-worker.js": "/pic-draw-sso/service-worker.js",
     "static/css/main.9b23e3bb.chunk.css.map": "/pic-draw-sso/static/css/main.9b23e3bb.chunk.css.map",
     "static/js/2.ee99e881.chunk.js.LICENSE.txt": "/pic-draw-sso/static/js/2.ee99e881.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.5cffab42.js",
     "static/js/2.ee99e881.chunk.js",
     "static/css/main.9b23e3bb.chunk.css",
-    "static/js/main.4eefc58a.chunk.js"
+    "static/js/main.4de14bc5.chunk.js"
   ]
 }
