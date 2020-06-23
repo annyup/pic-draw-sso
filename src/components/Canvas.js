@@ -73,11 +73,21 @@ class Canvas extends Component {
         this.ctx.lineCap = "round";
         let mouseX = offsetX;
         let mouseY = offsetY;
-            if (this.isDrawing) {
+
+        if (this.isDrawing) {
             this.ctx.lineTo(mouseX, mouseY);
             this.ctx.stroke();
             this.ctx.beginPath();
             this.ctx.moveTo(mouseX, mouseY);
+        } else if (nativeEvent.type === "touchmove" && this.isDrawing) {
+            const touch = nativeEvent.changedTouches[0];
+            let touchX = parseInt(touch.clientX - offsetX);
+            let touchY = parseInt(touch.clientY - offsetY);
+            this.ctx.lineTo(touchX, touchY);
+
+            this.ctx.stroke();
+            this.ctx.beginPath();
+            this.ctx.moveTo(touchX, touchY);
         }
     }
 
