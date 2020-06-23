@@ -96,7 +96,7 @@ class Canvas extends Component {
         this.isDrawing = false;
         this.ctx.beginPath();
         this.ctx.closePath();
-
+        // for tablet & mobile users
         if (nativeEvent.type === "touchend") {
             this.isDrawing = false;
             this.ctx.beginPath();
@@ -161,7 +161,10 @@ class Canvas extends Component {
                                 onMouseDown={this.startDrawing}
                                 onMouseUp={this.stopDrawing}
                                 onMouseOut={this.stopDrawing}
-                                onMouseMove={this.draw}>
+                                onMouseMove={this.draw}
+                                onTouchStart={this.startDrawing}
+                                onTouchMove={this.draw}
+                                onTouchEnd={this.stopDrawing}>
                             </canvas>
                         </div>
                     </div>
