@@ -20,6 +20,7 @@ class Canvas extends Component {
     componentDidMount() {
         this.handleResize();
         window.addEventListener("resize", this.handleResize.bind(this));
+        this.ctx = this.canvas.current.getContext("2d");
     }
 
     handleResize = () => {
@@ -66,7 +67,6 @@ class Canvas extends Component {
 
     draw = ({nativeEvent}) => {
 
-        this.ctx = this.canvas.current.getContext("2d");
         const {offsetX, offsetY} = nativeEvent;
 
         this.ctx.lineJoin = "round";
