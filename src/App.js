@@ -3,7 +3,7 @@ import './App.css';
 import Canvas from './components/Canvas.js';
 import Gallery from './components/Gallery.js';
 import { 
-  BrowserRouter as Router, 
+  HashRouter as Router, 
   Route } from 'react-router-dom';
 
 class App extends Component {
