@@ -1,3 +1,5 @@
+Project was inspired by a exercise in a web dev course, but also [Anna Liang](https://annajliang.github.io/drawIt/)!
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
