@@ -1,5 +1,16 @@
 Project was inspired by a exercise in a web dev course, but also [Anna Liang](https://annajliang.github.io/drawIt/)!
 
+[Live Link](https://annyup.github.io/pic-draw-sso)
+
+Stretch Goals
+
+1.	~~Create a color picker and eraser~~
+2.	~~Let user to make their pen bigger or smaller~~
+3.	Being able to upload an image to edit
+4.	Text input for users to type on image
+5.	Allow user to input their name to be displayed
+6.  ~~Make gallery page it's own component page~~
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
