@@ -45,12 +45,18 @@ class Canvas extends Component {
 
     draw = ({nativeEvent}) => {
 
-        const {offsetX, offsetY} = nativeEvent;
+        // const {offsetX, offsetY} = nativeEvent;
 
         this.ctx.lineJoin = "round";
         this.ctx.lineCap = "round";
-        let mouseX = offsetX;
-        let mouseY = offsetY;
+        // let mouseX = offsetX;
+        // let mouseY = offsetY;
+
+        const pos = this.canvas.current.getBoundingClientRect();
+        let offsetX = pos.left;
+        let offsetY = pos.top;
+        let mouseX = parseInt(nativeEvent.clientX - offsetX);
+        let mouseY = parseInt(nativeEvent.clientY - offsetY);
 
         if (nativeEvent.type === "mousemove" && this.isDrawing) {
             this.ctx.lineTo(mouseX, mouseY);
