@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/pic-draw-sso/static/css/main.58f431ac.chunk.css",
-    "main.js": "/pic-draw-sso/static/js/main.16db9f53.chunk.js",
-    "main.js.map": "/pic-draw-sso/static/js/main.16db9f53.chunk.js.map",
+    "main.css": "/pic-draw-sso/static/css/main.18fbd19e.chunk.css",
+    "main.js": "/pic-draw-sso/static/js/main.36941b47.chunk.js",
+    "main.js.map": "/pic-draw-sso/static/js/main.36941b47.chunk.js.map",
     "runtime-main.js": "/pic-draw-sso/static/js/runtime-main.5cffab42.js",
     "runtime-main.js.map": "/pic-draw-sso/static/js/runtime-main.5cffab42.js.map",
     "static/js/2.56228ff9.chunk.js": "/pic-draw-sso/static/js/2.56228ff9.chunk.js",
     "static/js/2.56228ff9.chunk.js.map": "/pic-draw-sso/static/js/2.56228ff9.chunk.js.map",
     "index.html": "/pic-draw-sso/index.html",
-    "precache-manifest.3bc8b0b3c0bfeb901dd68f0bb6d17ce0.js": "/pic-draw-sso/precache-manifest.3bc8b0b3c0bfeb901dd68f0bb6d17ce0.js",
+    "precache-manifest.8b7f9b68892c5d89a0d424b9b78411a0.js": "/pic-draw-sso/precache-manifest.8b7f9b68892c5d89a0d424b9b78411a0.js",
     "service-worker.js": "/pic-draw-sso/service-worker.js",
-    "static/css/main.58f431ac.chunk.css.map": "/pic-draw-sso/static/css/main.58f431ac.chunk.css.map",
+    "static/css/main.18fbd19e.chunk.css.map": "/pic-draw-sso/static/css/main.18fbd19e.chunk.css.map",
     "static/js/2.56228ff9.chunk.js.LICENSE.txt": "/pic-draw-sso/static/js/2.56228ff9.chunk.js.LICENSE.txt",
     "static/media/App.css": "/pic-draw-sso/static/media/triangle-bg.8e7bbd26.png"
   },
   "entrypoints": [
     "static/js/runtime-main.5cffab42.js",
     "static/js/2.56228ff9.chunk.js",
-    "static/css/main.58f431ac.chunk.css",
-    "static/js/main.16db9f53.chunk.js"
+    "static/css/main.18fbd19e.chunk.css",
+    "static/js/main.36941b47.chunk.js"
   ]
 }

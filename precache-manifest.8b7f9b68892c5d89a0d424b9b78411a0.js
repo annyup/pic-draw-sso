@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "aae4c20d69bb6c2f2321bddb833b6f6d",
+    "revision": "29cac8b6b86aebd20a04801cb7fc7642",
     "url": "/pic-draw-sso/index.html"
   },
   {
-    "revision": "e67758f58801e8543111",
-    "url": "/pic-draw-sso/static/css/main.58f431ac.chunk.css"
+    "revision": "ef14d97ad96749919aa1",
+    "url": "/pic-draw-sso/static/css/main.18fbd19e.chunk.css"
   },
   {
     "revision": "9187d815e283eb1d5d19",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pic-draw-sso/static/js/2.56228ff9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e67758f58801e8543111",
-    "url": "/pic-draw-sso/static/js/main.16db9f53.chunk.js"
+    "revision": "ef14d97ad96749919aa1",
+    "url": "/pic-draw-sso/static/js/main.36941b47.chunk.js"
   },
   {
     "revision": "aa39e6aae8350347d5c2",
