@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/pic-draw-sso/precache-manifest.a054618a27092ee02582e7e3b05a4ae9.js"
+  "/pic-draw-sso/precache-manifest.3bc8b0b3c0bfeb901dd68f0bb6d17ce0.js"
 );
 
 self.addEventListener('message', (event) => {
