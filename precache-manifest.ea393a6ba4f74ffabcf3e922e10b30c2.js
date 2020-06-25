@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e25823cc5ecc7eed6c8bf0cc67a3f926",
+    "revision": "fc68b37a981150eed613db1eda30a187",
     "url": "/pic-draw-sso/index.html"
   },
   {
-    "revision": "bd6eb3373362386a20ec",
+    "revision": "174d7565b136110bbd77",
     "url": "/pic-draw-sso/static/css/main.1f35e74c.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pic-draw-sso/static/js/2.56228ff9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "bd6eb3373362386a20ec",
-    "url": "/pic-draw-sso/static/js/main.47d562c2.chunk.js"
+    "revision": "174d7565b136110bbd77",
+    "url": "/pic-draw-sso/static/js/main.0a1165c7.chunk.js"
   },
   {
     "revision": "aa39e6aae8350347d5c2",
