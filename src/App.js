@@ -18,7 +18,11 @@ class App extends Component {
 
           <footer>
             <div className="wrapper">
-              <p>Copyright © Anny Pham 2020</p>
+              <p>Copyright © Anny Pham 2020 |
+                <a href="https://annyup.com"><i class="fas fa-globe"></i></a>
+                <a href="https://github.com/annyup/"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/annyup_"><i class="fab fa-twitter"></i></a>
+              </p>
             </div>
           </footer>
 

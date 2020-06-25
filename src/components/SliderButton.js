@@ -1,8 +1,8 @@
-// Slider.js
+// SliderButton.js
 
 import React, { Component } from "react";
 
-class Slider extends Component {
+class SliderButton extends Component {
     constructor() {
         super();
 
@@ -31,9 +31,10 @@ class Slider extends Component {
                     id = "brush-slider"
                     value = {this.state.value}
                     onChange = {this.setSize}/>
+                <span class="sr-only">Slider</span>
             </button>
         )
     }
 }
 
-export default Slider;
+export default SliderButton;

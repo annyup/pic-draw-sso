@@ -6,7 +6,7 @@ import ColorButton from './ColorButton.js';
 import EraserButton from './EraserButton.js';
 import PostButton from './PostButton.js';
 import GalleryButton from './GalleryButton.js';
-import Slider from './Slider.js';
+import SliderButton from './SliderButton.js';
 
 
 const Buttons = (props) => {
@@ -15,7 +15,7 @@ const Buttons = (props) => {
             <span className="palette-icon">🎨</span>
             <span class="sr-only">palette</span>
             <ColorButton onClick={props.colorFunction}/>
-            <Slider onChange={props.brushFunction}/>
+            <SliderButton onChange={props.brushFunction}/>
             <EraserButton onClick={props.eraserFunction}/>
             <ClearButton onClick={props.clearFunction}/>
             <PostButton onClick={props.postFunction}/>

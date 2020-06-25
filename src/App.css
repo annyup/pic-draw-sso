@@ -82,7 +82,7 @@ p {
 .canvas-button-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 62px;
+  margin-bottom: 56px;
 }
 
 .palette-icon {
@@ -222,6 +222,10 @@ footer {
 
 footer p {
   font-size: 1.0rem;
+}
+
+footer i {
+  font-size: 1.5rem;
 }
 
 /* Sweet Alert */
