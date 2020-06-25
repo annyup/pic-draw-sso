@@ -3,7 +3,8 @@
 import React, { Component } from "react";
 
 class EraserButton extends Component {
-    getEraser = () => {
+
+      getEraser = () => {
         const eraser = "#FFFFFF";
         this.props.onClick(eraser);
       };

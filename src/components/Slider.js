@@ -9,15 +9,14 @@ class Slider extends Component {
         this.state = {
             value: 1,
         };
-
     }
 
-    // Changes slider position and value
+    // changes slider position and value
     setSize = (e) => {
         const size = e.target.value;
         this.setState({value: size});
 
-        // Calls canvas brushSize to change brush size
+        // calls canvas brushSize to change brush size
         this.props.onChange (size);
     }
 
