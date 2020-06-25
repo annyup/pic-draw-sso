@@ -50,27 +50,26 @@ class Canvas extends Component {
         this.ctx.lineJoin = "round";
         this.ctx.lineCap = "round";
 
+        let x;
+        let y;
+
         // checks if user is drawing with mouse or touchscreen
         if(this.isDrawing) {
             if (nativeEvent.type === "mousemove") {
-                let mouseX = parseInt(nativeEvent.clientX - offsetX);
-                let mouseY = parseInt(nativeEvent.clientY - offsetY);
+                x = parseInt(nativeEvent.clientX - offsetX);
+                y = parseInt(nativeEvent.clientY - offsetY);
                 
-                this.ctx.lineTo(mouseX, mouseY);
-                this.ctx.stroke();
-                this.ctx.beginPath();
-                this.ctx.moveTo(mouseX, mouseY);
             // for tablet & mobile users
             } else if (nativeEvent.type === "touchmove") {
                 const touch = nativeEvent.changedTouches[0];
-                let touchX = parseInt(touch.clientX - offsetX);
-                let touchY = parseInt(touch.clientY - offsetY);
-    
-                this.ctx.lineTo(touchX, touchY);
-                this.ctx.stroke();
-                this.ctx.beginPath();
-                this.ctx.moveTo(touchX, touchY);
+                x = parseInt(touch.clientX - offsetX);
+                y = parseInt(touch.clientY - offsetY);
             }
+
+            this.ctx.lineTo(x, y);
+            this.ctx.stroke();
+            this.ctx.beginPath();
+            this.ctx.moveTo(x, y);
         }
     }
 
