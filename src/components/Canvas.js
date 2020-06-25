@@ -35,44 +35,42 @@ class Canvas extends Component {
         // for tablet & mobile users
         if (nativeEvent.type === "touchstart") {
             this.isDrawing = true;
-
-            const touch = nativeEvent.touches[0];
-            this.touch = {
-              x: touch.clientX,
-              y: touch.clientY,
-            };
         }
     }
 
     // handles the drawing
+    // help from https://stackoverflow.com/questions/11287877/how-can-i-get-e-offsetx-on-mobile-ipad
     handleDraw = ({nativeEvent}) => {
 
-        const position = this.canvas.current.getBoundingClientRect();
-        let offsetX = position.left;
-        let offsetY = position.top;
-
-        let mouseX = parseInt(nativeEvent.clientX - offsetX);
-        let mouseY = parseInt(nativeEvent.clientY - offsetY);
+        const currentPos = this.canvas.current.getBoundingClientRect();
+        let offsetX = currentPos.left;
+        let offsetY = currentPos.top;
 
         // shape of the stroke
         this.ctx.lineJoin = "round";
         this.ctx.lineCap = "round";
 
-        if (nativeEvent.type === "mousemove" && this.isDrawing) {
-            this.ctx.lineTo(mouseX, mouseY);
-            this.ctx.stroke();
-            this.ctx.beginPath();
-            this.ctx.moveTo(mouseX, mouseY);
-        // for tablet & mobile users
-        } else if (nativeEvent.type === "touchmove" && this.isDrawing) {
-            const touch = nativeEvent.changedTouches[0];
-            let touchX = parseInt(touch.clientX - offsetX);
-            let touchY = parseInt(touch.clientY - offsetY);
-
-            this.ctx.lineTo(touchX, touchY);
-            this.ctx.stroke();
-            this.ctx.beginPath();
-            this.ctx.moveTo(touchX, touchY);
+        // checks if user is drawing with mouse or touchscreen
+        if(this.isDrawing) {
+            if (nativeEvent.type === "mousemove") {
+                let mouseX = parseInt(nativeEvent.clientX - offsetX);
+                let mouseY = parseInt(nativeEvent.clientY - offsetY);
+                
+                this.ctx.lineTo(mouseX, mouseY);
+                this.ctx.stroke();
+                this.ctx.beginPath();
+                this.ctx.moveTo(mouseX, mouseY);
+            // for tablet & mobile users
+            } else if (nativeEvent.type === "touchmove") {
+                const touch = nativeEvent.changedTouches[0];
+                let touchX = parseInt(touch.clientX - offsetX);
+                let touchY = parseInt(touch.clientY - offsetY);
+    
+                this.ctx.lineTo(touchX, touchY);
+                this.ctx.stroke();
+                this.ctx.beginPath();
+                this.ctx.moveTo(touchX, touchY);
+            }
         }
     }
 
