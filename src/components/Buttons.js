@@ -12,7 +12,7 @@ import SliderButton from './SliderButton.js';
 const Buttons = (props) => {
     return (
         <div className="button-container">
-            <span className="palette-icon">🎨</span>
+            <span className="palette-icon">&#x1F3A8;</span>
             <span class="sr-only">palette</span>
             <ColorButton onClick={props.colorFunction}/>
             <SliderButton onChange={props.brushFunction}/>
