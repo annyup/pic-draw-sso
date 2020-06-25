@@ -114,7 +114,6 @@ class Canvas extends Component {
     saveCanvas = () => {
 
         const dataURL = this.canvas.current.toDataURL();
-        console.log(dataURL);
 
         if (dataURL == this.blank) {
             swal({
