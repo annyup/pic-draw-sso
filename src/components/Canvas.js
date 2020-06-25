@@ -56,14 +56,14 @@ class Canvas extends Component {
         // checks if user is drawing with mouse or touchscreen
         if(this.isDrawing) {
             if (nativeEvent.type === "mousemove") {
-                x = parseInt(nativeEvent.clientX - offsetX);
-                y = parseInt(nativeEvent.clientY - offsetY);
+                x = nativeEvent.clientX - offsetX;
+                y = nativeEvent.clientY - offsetY;
                 
             // for tablet & mobile users
             } else if (nativeEvent.type === "touchmove") {
                 const touch = nativeEvent.changedTouches[0];
-                x = parseInt(touch.clientX - offsetX);
-                y = parseInt(touch.clientY - offsetY);
+                x = touch.clientX - offsetX;
+                y = touch.clientY - offsetY;
             }
 
             this.ctx.lineTo(x, y);
