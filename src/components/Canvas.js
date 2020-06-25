@@ -6,11 +6,14 @@ import swal from 'sweetalert';
 class Canvas extends Component {
     constructor() {
         super();
-
+        // if user is not drawing, it is set to false
         this.isDrawing = false;
-
+        // canvas is referenced in the render html
         this.canvas = React.createRef();
 
+        this.blank = null;
+
+        // default width and height
         this.state = {
             width: 800,
             height: 600,
@@ -19,44 +22,41 @@ class Canvas extends Component {
 
     componentDidMount() {
         this.ctx = this.canvas.current.getContext("2d");
-        this.handleResize();
-        window.addEventListener("resize", this.handleResize.bind(this));
+        this.blank = this.canvas.current.toDataURL();
+        this.updateResize();
+        window.addEventListener("resize", this.updateResize.bind(this));
     }
 
-    componentWillUnmount() {
-        window.removeEventListener("resize", this.handleResize.bind(this));
-    }
-
-    // start & stop drawing functions
+    // when user starts start drawing
     startDrawing = ({nativeEvent}) => {
         this.isDrawing = true;
-        this.draw({nativeEvent})
+        this.handleDraw({nativeEvent})
 
         // for tablet & mobile users
         if (nativeEvent.type === "touchstart") {
             this.isDrawing = true;
+
             const touch = nativeEvent.touches[0];
-            this.swipe = {
+            this.touch = {
               x: touch.clientX,
               y: touch.clientY,
             };
         }
     }
 
-    draw = ({nativeEvent}) => {
+    // handles the drawing
+    handleDraw = ({nativeEvent}) => {
 
-        // const {offsetX, offsetY} = nativeEvent;
+        const position = this.canvas.current.getBoundingClientRect();
+        let offsetX = position.left;
+        let offsetY = position.top;
 
-        this.ctx.lineJoin = "round";
-        this.ctx.lineCap = "round";
-        // let mouseX = offsetX;
-        // let mouseY = offsetY;
-
-        const pos = this.canvas.current.getBoundingClientRect();
-        let offsetX = pos.left;
-        let offsetY = pos.top;
         let mouseX = parseInt(nativeEvent.clientX - offsetX);
         let mouseY = parseInt(nativeEvent.clientY - offsetY);
+
+        // shape of the stroke
+        this.ctx.lineJoin = "round";
+        this.ctx.lineCap = "round";
 
         if (nativeEvent.type === "mousemove" && this.isDrawing) {
             this.ctx.lineTo(mouseX, mouseY);
@@ -76,6 +76,7 @@ class Canvas extends Component {
         }
     }
 
+    // when user stops drawing
     stopDrawing = ({nativeEvent}) => {
         this.isDrawing = false;
         this.ctx.beginPath();
@@ -84,7 +85,7 @@ class Canvas extends Component {
         if (nativeEvent.type === "touchend") {
             this.isDrawing = false;
             this.ctx.beginPath();
-          }
+        }
     }
 
     // slider function for brush size
@@ -94,12 +95,13 @@ class Canvas extends Component {
 
     // changes color of the brush
     changeColor = (selectedColor) => {
+        this.ctx.globalCompositeOperation = "source-over";
         this.ctx.strokeStyle = selectedColor;
     }
 
     // changes to an eraser
-    useEraser = (selectedEraser) => {
-        this.ctx.strokeStyle = selectedEraser;
+    useEraser = () => {
+        this.ctx.globalCompositeOperation = "destination-out";
     }
 
     // clears the canvas
@@ -107,24 +109,34 @@ class Canvas extends Component {
         this.ctx.clearRect(0, 0, this.state.width, this.state.height);
     };
 
+    // checks if the canvas is blank or not
     // grab the URL of the image and save it to firebase
     saveCanvas = () => {
+
         const dataURL = this.canvas.current.toDataURL();
         console.log(dataURL);
 
-        const dbRef = firebase.database().ref();
-        dbRef.push(dataURL);
-        
-        // clear the canvas when user has submitted their drawing
-        this.clearCanvas();
+        if (dataURL == this.blank) {
+            swal({
+                text: "Please draw something!",
+              });
+        } else {
+            const dbRef = firebase.database().ref();
+            dbRef.push(dataURL);
+            
+            // clear the canvas when user has submitted their drawing
+            this.clearCanvas();
+    
+            swal({
+                text: "Your drawing has been saved! Go to the gallery to check it out!",
+            });
+        }
 
-        swal({
-            text: "Your drawing has been saved! Go to the gallery to check it out!",
-          });
     }
 
     // resizes the canvas when inner width of window changes
-    handleResize = () => {
+    // help from https://www.hawatel.com/blog/handle-window-resize-in-react/
+    updateResize = () => {
         if (window.innerWidth > 900) {
         this.setState({ width: 800, height: 600 });
         } else if (window.innerWidth <= 900 && window.innerWidth > 810) {
@@ -152,15 +164,15 @@ class Canvas extends Component {
                 <section>
                     <div className="canvas-header">
                         <h1>Pic-draw-sso</h1>
-                        <p className="p-styles">Are you the next Picasso? Use the buttons on the side to get started on your art piece! Remember to hit the save button and press gallery to view!</p>
+                        <p className="p-styles">Are you the next Picasso? Use the buttons to get started on your art piece! Remember to hit the save button and press gallery to view!</p>
                     </div>
                     <div className="canvas-button-container">
                         <Buttons
                             colorFunction={this.changeColor}
-                            clearFunction={this.clearCanvas}
+                            brushFunction={this.brushSize}
                             eraserFunction={this.useEraser}
+                            clearFunction={this.clearCanvas}
                             postFunction={this.saveCanvas}
-                            id="slider" brushSize={this.brushSize}
                         />
                         <div className='canvas-container'>
                             <canvas
@@ -169,12 +181,14 @@ class Canvas extends Component {
                                 ref={this.canvas}
                                 width={this.state.width}
                                 height={this.state.height}
+
                                 onMouseDown={this.startDrawing}
                                 onMouseUp={this.stopDrawing}
                                 onMouseOut={this.stopDrawing}
-                                onMouseMove={this.draw}
+                                onMouseMove={this.handleDraw}
+
                                 onTouchStart={this.startDrawing}
-                                onTouchMove={this.draw}
+                                onTouchMove={this.handleDraw}
                                 onTouchEnd={this.stopDrawing}>
                             </canvas>
                         </div>

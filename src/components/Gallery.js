@@ -9,6 +9,7 @@ class Gallery extends Component {
     super();
     this.state = {
       drawingsArray: [],
+      isLoading: true
     }        
   }
 
@@ -30,6 +31,7 @@ class Gallery extends Component {
 
       this.setState ({
         drawingsArray: arrayFromDb,
+        isLoading: false
       })
     })
   }
@@ -48,9 +50,11 @@ class Gallery extends Component {
 
         <div className="wrapper">
           <h1>Gallery</h1>
-          <p className="p-styles">Here is yours and other users' master piece! Take a look!</p>
+          <p className="p-styles">Take a look at your drawing and other users' master pieces!</p>
 
-          {
+          {this.state.isLoading ?
+            <div className="gallery-loader"></div>
+            :
             <div className="gallery-grid">
               {this.state.drawingsArray.map((item) => {
                 return (
