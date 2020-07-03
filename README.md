@@ -1,6 +1,6 @@
 ## Pic-draw-sso (very punny...)
 
-Project was inspired by a exercise in a web dev course, but also [Anna Liang](https://annajliang.github.io/drawIt/)!
+Project was inspired by a exercise in a web dev course. Design and code help from [Anna Liang](https://github.com/annajliang/drawIt)
 
 [Live Link](https://annyup.github.io/pic-draw-sso)
 
