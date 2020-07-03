@@ -3,6 +3,8 @@ import Buttons from './Buttons.js';
 import firebase from "../firebase.js";
 import swal from 'sweetalert';
 
+// naming, file structure and code help from Anna Liang
+// https://github.com/annajliang/drawIt/blob/master/src/components/Canvas.js
 class Canvas extends Component {
     constructor() {
         super();
@@ -40,6 +42,8 @@ class Canvas extends Component {
 
     // handles the drawing
     // help from https://stackoverflow.com/questions/11287877/how-can-i-get-e-offsetx-on-mobile-ipad
+    // https://stackoverflow.com/questions/49157880/how-to-handle-touch-events-with-html5-canvas
+    // https://stackoverflow.com/questions/17130395/real-mouse-position-in-canvas
     handleDraw = ({nativeEvent}) => {
 
         const currentPos = this.canvas.current.getBoundingClientRect();
@@ -133,26 +137,21 @@ class Canvas extends Component {
     // resizes the canvas when inner width of window changes
     // help from https://www.hawatel.com/blog/handle-window-resize-in-react/
     updateResize = () => {
-        if (window.innerWidth > 900) {
-        this.setState({ width: 800, height: 600 });
-        } else if (window.innerWidth <= 900 && window.innerWidth > 810) {
-        this.setState({ width: 750, height: 500 });
-        } else if (window.innerWidth <= 810 && window.innerWidth > 750) {
-            this.setState({ width: 700, height: 500 });
-        } else if (window.innerWidth <= 750 && window.innerWidth > 700) {
-            this.setState({ width: 600, height: 500 });
-        } else if (window.innerWidth <= 700 && window.innerWidth > 600) {
-            this.setState({ width: 500, height: 500 });
-        } else if (window.innerWidth <= 600 && window.innerWidth > 500) {
-            this.setState({ width: 450, height: 500 });
+        if(window.innerWidth > 900) {
+            this.setState({ width: 800, height: 600 });
         } else if (window.innerWidth <= 500 && window.innerWidth > 410) {
             this.setState({ width: 380, height: 500 });
         } else if (window.innerWidth <= 410 && window.innerWidth > 350) {
             this.setState({ width: 300, height: 500 });
         } else if (window.innerWidth <= 350) {
             this.setState({ width: 280, height: 500 });
+        } else {
+            let updateWidth  = window.innerWidth-50;
+            let updateHeight = Math.round(updateWidth/1);
+            this.setState({ width: updateWidth, height: updateHeight });
         }
     };
+    
 
     render () {
         return (

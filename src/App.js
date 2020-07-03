@@ -22,6 +22,9 @@ class App extends Component {
                 <a href="https://annyup.com"><i class="fas fa-globe"></i></a>
                 <a href="https://github.com/annyup/"><i class="fab fa-github"></i></a>
                 <a href="https://twitter.com/annyup_"><i class="fab fa-twitter"></i></a>
+                |
+                Design and code help from
+                <a href="https://annajliang.github.io/drawIt"> Anna Liang</a>
               </p>
             </div>
           </footer>
